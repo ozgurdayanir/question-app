@@ -1,37 +1,24 @@
-.App {
+.result-container {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-.container {
-    display: flex;
+    padding: 24px;
     flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding: 80px auto;
-}
-
-.rules-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 24px;
     gap: 24px;
+    align-self: stretch;
     border-radius: 24px;
     background: #3d3f6b;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.12);
 }
 
-.rule {
+.result {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 8px;
-    align-self: stretch;
 }
 
-#start-btn {
+button {
     color: var(--bg-color);
     font-size: 20px;
     font-style: normal;
@@ -50,7 +37,7 @@
     transition: all 150ms ease;
 }
 
-#start-btn:hover {
+button:hover {
     background: rgb(209, 196, 120);
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.12);
 }

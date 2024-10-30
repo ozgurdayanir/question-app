@@ -32,18 +32,25 @@ h1 {
     line-height: 80px;
 }
 
-h3 {
+h2 {
     color: var(--primary-color);
     text-align: center;
-    font-size: 32px;
+    font-size: 28px;
     font-style: normal;
     font-weight: 500;
-    line-height: 36px;
+    line-height: 32px;
+}
+
+h3 {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
 }
 
 p {
     color: var(--primary-color);
-    text-align: center;
     font-size: 16px;
     font-style: normal;
     font-weight: 300;

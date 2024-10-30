@@ -1,3 +1,4 @@
+import './style.css';
 import React, { useEffect } from 'react';
 
 const Question = ({ question, currentQuestion, onAnswer, showAnswers }) => {
@@ -12,15 +13,19 @@ const Question = ({ question, currentQuestion, onAnswer, showAnswers }) => {
   }, [showAnswers, onAnswer]);
 
   return (
-    <div>
-      <h3>Question {currentQuestion + 1}</h3>
-      <h2>{question.question}</h2>
-      {question.media && <img src={question.media} alt={question.question} style={{ width: '300px', marginBottom: '20px' }} />}
-      {showAnswers && question.options.map((option, index) => (
-        <button key={index} onClick={() => onAnswer(index)}>
-          {option}
-        </button>
-      ))}
+    <div className='container question-container'>
+      <div className='question-content'>
+        <h3 className='question-number'>Question {currentQuestion + 1}</h3>
+        {question.media && <img src={question.media} alt={question.question} />}
+        <h2>{question.question}</h2>
+      </div>
+      <div className='options'>
+        {showAnswers && question.options.map((option, index) => (
+          <button id='option' key={index} onClick={() => onAnswer(index)}>
+            {option}
+          </button>
+        ))}
+      </div>
       {!showAnswers && <p>Answers will appear in 4 seconds...</p>}
     </div>
   );

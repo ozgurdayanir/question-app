@@ -7,7 +7,7 @@ const Timer = ({ timeRemaining, currentQuestion }) => {
     setAnimationKey((prevKey) => prevKey + 1);
   }, [currentQuestion]);
 
-  const strokeColor = timeRemaining <= 10 ? 'red' : 'gray';
+  const strokeColor = timeRemaining <= 10 ? 'red' : 'var(--primary-color)';
   const clockSound = new Audio('./public/timer.mp3');
 
   useEffect(() => {
@@ -33,7 +33,6 @@ const Timer = ({ timeRemaining, currentQuestion }) => {
           <circle r="18" cx="20" cy="20" style={{ stroke: strokeColor }}></circle>
         </svg>
       </div>
-      <p>Time Remaining: {timeRemaining} seconds</p>;
     </>
   )
 };
