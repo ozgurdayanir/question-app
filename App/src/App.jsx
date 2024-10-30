@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import questions from '../data'; // 
+import questions from '../public/data'; // 
 import Question from './assets/components/question';
 import Timer from './assets/components/timer';
 import Scoreboard from './assets/components/scoreboard';
