@@ -1,6 +1,11 @@
-# Timer Component with Sound and Visual Countdown
+# Question App - React
 
 This project is a React timer component that includes both a visual countdown indicator and an audio alert feature. The timer starts with a set duration (30 seconds) and updates every second, with the countdown indicator reflecting the remaining time. An audio alert sounds when the timer reaches the last 10 seconds, and the color of the countdown indicator changes to warn the user.
+
+## ScreenShot
+[View Demo Link](https://question-app-gold.vercel.app)
+
+![ScreenShot](./public/screenshot.png)
 
 ## Features
 
@@ -9,10 +14,6 @@ This project is a React timer component that includes both a visual countdown in
 - **Dynamic Styling**: The indicator changes color during the last 5 seconds for additional urgency.
 - **Automatic Reset**: The timer resets to the initial 30 seconds at the start of each question.
 
-## Project Structure
-
-- **`public` folder**: Stores the sound file (`time-running-out.mp3`) used for the 10-second audio alert.
-- **`src/TimerComponent.js`**: Main timer component, handling the countdown, sound alert, and visual indicator.
 
 ## Installation
 
@@ -35,3 +36,7 @@ This project is a React timer component that includes both a visual countdown in
     ```bash
     npm run dev
     ````
+
+## License
+
+This project is open-source under the MIT license.
