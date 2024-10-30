@@ -1,18 +1,11 @@
-.question-container {
-    width: 520px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
 
 .question-content {
     width: 100%;
+    height: auto;
     display: flex;
     padding: 24px;
     flex-direction: column;
     gap: 24px;
-    align-self: stretch;
     border-radius: 24px;
     background: #3d3f6b;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.12);
@@ -55,4 +48,29 @@
 #option:hover {
     background: rgb(209, 196, 120);
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 575.98px) {
+    .question-container {
+        width: 100%;
+        padding: 16px 24px;
+    }
+    .options {
+        gap: 16px 16px;
+    }
+    
+    #option {
+        width: 100%;
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .question-content {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .question-content img {
+        max-height: 200px;
+    }
 }

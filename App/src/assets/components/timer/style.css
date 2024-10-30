@@ -1,10 +1,12 @@
 #timer{
     position: relative;
-    margin: auto;
+    margin: 24px auto;
     margin-top: 50px;
     height: 40px;
     width: 40px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
   }
   #time{
     color: black;
@@ -39,3 +41,10 @@
       stroke-dashoffset: 113px;
     }
   }
+
+@media (max-width: 575.98px) {
+
+    #timer{
+        margin-top: 16px;
+    }
+}
