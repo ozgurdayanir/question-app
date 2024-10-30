@@ -8,7 +8,7 @@ const Timer = ({ timeRemaining, currentQuestion }) => {
   }, [currentQuestion]);
 
   const strokeColor = timeRemaining <= 10 ? 'red' : 'var(--primary-color)';
-  const clockSound = new Audio('./public/timer.mp3');
+  const clockSound = new Audio('/timer.mp3');
 
   useEffect(() => {
     clockSound.load();
