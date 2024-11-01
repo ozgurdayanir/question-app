@@ -1,8 +1,15 @@
 import './style.css';
+import { useState } from 'react';
 import React from 'react';
+import Results from '../results';
 
-const Scoreboard = ({ score, correctAnswers, wrongAnswers, blankAnswers, onReplay }) => {
+const Scoreboard = ({questions, score, correctAnswers, wrongAnswers, blankAnswers, onReplay, userAnswers}) => {
+  const [showAnswers, setShowAnswers] = useState(false);
+  const handleToggle = () => {
+    setShowAnswers((prevState) => !prevState); // Toggle the state
+  };
   return (
+    <>
     <div className='container'>
       <h1>Game Over! Your Score: <br />{score}</h1>
       <div className='result-container'>
@@ -23,10 +30,18 @@ const Scoreboard = ({ score, correctAnswers, wrongAnswers, blankAnswers, onRepla
             <path d="M12 21.75C6.62391 21.75 2.25 17.3761 2.25 12C2.25 6.62391 6.62391 2.25 12 2.25C17.3761 2.25 21.75 6.62391 21.75 12C21.75 17.3761 17.3761 21.75 12 21.75Z" fill="#E7E7E7" />
           </svg>
           <h3>Blank Answers: {blankAnswers}</h3>
-        </div>
+        </div> 
       </div>
-      <button onClick={onReplay}>Replay</button>
+      <Results showAnswers={showAnswers}
+    userAnswers={userAnswers}
+    questions={questions} />
+      <div className='btn-group'>
+        <button onClick={onReplay}>Replay</button>
+        <button onClick={handleToggle}>Show Answers</button>
+      </div>
     </div>
+    
+    </>
   );
 };
 

@@ -18,6 +18,13 @@
     gap: 8px;
 }
 
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 16px;
+}
+
 button {
     color: var(--bg-color);
     font-size: 20px;
@@ -26,7 +33,7 @@ button {
     line-height: 24px;
     text-align: center;
     display: flex;
-    width: 200px;
+    width: calc(50% - 8px);
     padding: 12px 24px;
     justify-content: center;
     align-items: center;

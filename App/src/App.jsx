@@ -15,6 +15,7 @@ const App = () => {
   const [gameOver, setGameOver] = useState(false);
   const [showAnswers, setShowAnswers] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
+  const [userAnswers, setUserAnswers] = useState([]);
 
   const handleStart = () => {
     setGameStarted(true);
@@ -34,8 +35,11 @@ const App = () => {
       timer = setInterval(() => {
         setTimeRemaining((prev) => prev - 1);
       }, 1000);
-    } else if (timeRemaining === 0) {
-      handleNextQuestion();
+    } else if (!gameOver && timeRemaining === 0) {
+      setBlankAnswers((prev) => prev + 1);
+      setUserAnswers((prev) => [...prev, null]);
+      handleNextQuestion()
+      console.log([currentQuestion, blankAnswers, userAnswers]);
     }
     return () => clearInterval(timer);
   }, [timeRemaining, gameOver, gameStarted]);
@@ -53,18 +57,27 @@ const App = () => {
 
   const handleAnswer = (index) => {
     setShowAnswers(false);
-    // Check if an answer was selected
-    if (index === null) {
-      setBlankAnswers((prev) => prev + 1);
-    } else if (index === questions[currentQuestion].options.indexOf(questions[currentQuestion].answer)) {
-      setScore((prev) => prev + 10);
+    setUserAnswers((prev) => [...prev, index]);
+ 
+    const selectedOption = questions[currentQuestion].options[index];  // Kullanıcının seçtiği seçeneği al
+    const correctAnswer = questions[currentQuestion].answer;  // Doğru cevabı al
+ 
+    console.log("User selected:", selectedOption);
+    console.log("Correct answer:", correctAnswer);
+ 
+    if (selectedOption === correctAnswer) {  // Metin karşılaştırması
       setCorrectAnswers((prev) => prev + 1);
+      setScore((prev) => prev + 10);
+      console.log("Correct Answer Selected");
     } else {
       setWrongAnswers((prev) => prev + 1);
+      console.log("Incorrect Answer Selected");
     }
-
+ 
     handleNextQuestion();
   };
+ 
+
 
   const handleNextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
@@ -73,7 +86,6 @@ const App = () => {
       setShowAnswers(false); // Reset showAnswers for the next question
     } else {
       setGameOver(true);
-      setBlankAnswers((prev) => prev + (questions.length - correctAnswers - wrongAnswers - 1)); // Calculate blank answers
     }
   };
 
@@ -117,6 +129,8 @@ const App = () => {
           wrongAnswers={wrongAnswers}
           blankAnswers={blankAnswers}
           onReplay={restartGame}
+          userAnswers={userAnswers}
+          questions={questions}
         />
       ) : (
         <div>
@@ -132,5 +146,4 @@ const App = () => {
     </div>
   );
 };
-
 export default App;
