@@ -12,6 +12,7 @@ function Results({ showAnswers, questions, userAnswers }) {
                             <h4>{question.question}</h4>
                             <p><strong>Correct Answer:</strong> {question.answer}</p>
                             <p>
+                                {/* Display the user's answer if it exists, otherwise display "No answer given" */}
                                 <strong>Your Answer: </strong> 
                                 {userAnswers[index] !== null ? question.options[userAnswers[index]] : " No answer given"}
                             </p>

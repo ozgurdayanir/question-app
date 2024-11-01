@@ -59,13 +59,13 @@ const App = () => {
     setShowAnswers(false);
     setUserAnswers((prev) => [...prev, index]);
  
-    const selectedOption = questions[currentQuestion].options[index];  // Kullanıcının seçtiği seçeneği al
-    const correctAnswer = questions[currentQuestion].answer;  // Doğru cevabı al
+    const selectedOption = questions[currentQuestion].options[index];  // Take the selected option
+    const correctAnswer = questions[currentQuestion].answer;  // Take the correct answer
  
     console.log("User selected:", selectedOption);
     console.log("Correct answer:", correctAnswer);
  
-    if (selectedOption === correctAnswer) {  // Metin karşılaştırması
+    if (selectedOption === correctAnswer) {  // Check if the selected option is the correct answer
       setCorrectAnswers((prev) => prev + 1);
       setScore((prev) => prev + 10);
       console.log("Correct Answer Selected");
@@ -76,8 +76,6 @@ const App = () => {
  
     handleNextQuestion();
   };
- 
-
 
   const handleNextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
